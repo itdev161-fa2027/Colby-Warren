@@ -1,11 +1,16 @@
 import express from "express";
+import connectDatabase from "./config/db.js";
+
+// Initialize express application
 const app = express();
+
+// Connect to the database
+connectDatabase();
+
+// API endpoints
 app.get("/", (req, res) => {
-  res.send("API Running");
+  res.send("http get request sent to root api endpoint");
 });
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
-});
+// Connection listener
+app.listen(3000, () => console.log("Express server running on port 3000"));
