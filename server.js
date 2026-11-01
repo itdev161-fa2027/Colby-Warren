@@ -7,6 +7,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import Post from "./models/Post.js";
 import auth from "./middleware/auth.js";
+import cors from "cors";
 
 // Load environment variables
 dotenv.config();
@@ -18,6 +19,7 @@ const app = express();
 connectDatabase();
 
 // Configure Middleware
+app.use(cors());
 app.use(express.json());
 
 // API endpoints
