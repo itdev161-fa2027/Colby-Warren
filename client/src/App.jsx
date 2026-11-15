@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import PostDetail from "./pages/PostDetail";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute";
+import CreatePost from "./pages/CreatePost";
+import EditPost from "./pages/EditPost";
 import "./App.css";
 
 function App() {
@@ -18,6 +21,23 @@ function App() {
             <Route path="/posts/:id" element={<PostDetail />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/posts/create"
+              element={
+                <ProtectedRoute>
+                  <CreatePost />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/posts/:id/edit"
+              element={
+                <ProtectedRoute>
+                  <EditPost />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </Router>
