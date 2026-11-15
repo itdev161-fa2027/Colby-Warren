@@ -43,10 +43,11 @@ const Home = () => {
     <div className="container">
       <div className="home-header">
         <h1>Recent Posts</h1>
+
         {user ? (
-          <p className="auth-message">
-            Welcome back! Create Post button will be added in Activity 9.
-          </p>
+          <Link to="/posts/create" className="create-post-button">
+            Create New Post
+          </Link>
         ) : (
           <p className="auth-message">
             <Link to="/login">Login</Link> or{" "}
